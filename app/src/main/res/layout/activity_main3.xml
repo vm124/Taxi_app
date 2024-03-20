@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/startStreetEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Street"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/startHouseEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start House"
+            android:layout_below="@id/startStreetEditText"
+            android:inputType="number"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/startFlatEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Flat"
+            android:layout_below="@id/startHouseEditText"
+            android:inputType="number"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/destinationStreetEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination Street"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:layout_below="@id/startFlatEditText"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/destinationHouseEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination House"
+            android:layout_below="@id/destinationStreetEditText"
+            android:inputType="number"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/destinationFlatEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination Flat"
+            android:layout_below="@id/destinationHouseEditText"
+            android:inputType="number"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/destinationFlatEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="OK"/>
+    </RelativeLayout>
+
+</LinearLayout>
