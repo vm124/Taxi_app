@@ -19,11 +19,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.taxi_app.ui.theme.Taxi_appTheme
 
 class MainActivity : BaseActivity() {
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var phoneEditText: EditText
-    private lateinit var nameEditText: EditText
-    private lateinit var surnameEditText: EditText
-    private lateinit var registrationButton: Button
+    internal lateinit var sharedPreferences: SharedPreferences
+    internal lateinit var phoneEditText: EditText
+    internal lateinit var nameEditText: EditText
+    internal lateinit var surnameEditText: EditText
+    internal lateinit var registrationButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +53,7 @@ class MainActivity : BaseActivity() {
             override fun afterTextChanged(s: Editable?) {
                 val isPhoneChanged = sharedPreferences.getString("phone", "") != s.toString()
                 registrationButton.text = if (isPhoneChanged) "Registration" else "Log in"
+                enableRegistrationButtonIfAllFieldsFilled()
             }
         })
         nameEditText.addTextChangedListener(TextChangedListener())
@@ -97,13 +98,18 @@ class MainActivity : BaseActivity() {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
         override fun afterTextChanged(s: Editable?) {
-            // Проверяем, заполнены ли все поля
-            val allFieldsFilled = phoneEditText.text.isNotBlank() &&
-                    nameEditText.text.isNotBlank() &&
-                    surnameEditText.text.isNotBlank()
-
-            registrationButton.isEnabled = allFieldsFilled
+            /// Проверяем, заполнены ли все поля
+            enableRegistrationButtonIfAllFieldsFilled()
         }
+    }
+
+    // Метод для активации кнопки регистрации при заполнении всех полей
+    fun enableRegistrationButtonIfAllFieldsFilled() {
+        val allFieldsFilled = phoneEditText.text.isNotBlank() &&
+                nameEditText.text.isNotBlank() &&
+                surnameEditText.text.isNotBlank()
+
+        registrationButton.isEnabled = allFieldsFilled
     }
 }
 
